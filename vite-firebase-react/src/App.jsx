@@ -38,7 +38,7 @@ const App = () => {
         <Routes>
           <Route path={"/"} element={user.uid ? <Admin /> : <Auth />} />
           <Route path={"form"} element={<ContactForm />} />
-          <Route path={":id"} element={<ChatRoom />} />
+          <Route path={"chatRoom/:id"} element={<ChatRoom />} />
           <Route path={"*"} element={<NotFound />} />
         </Routes>
       </Router>
