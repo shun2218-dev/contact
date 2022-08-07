@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid/DataGrid";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
@@ -5,8 +6,11 @@ import { COLUMNS } from "../const/COLUMNS";
 import { db } from "../firebase";
 import MenuBar from "./Basic/MenuBar";
 import CustomNoRowsOverlay from "./Basic/NoRows";
+import { useIdle } from "react-use";
 
 const List = () => {
+  const isIdle = useIdle(60e3);
+
   const [pageSize, setPageSize] = useState(5);
   const [posts, setPosts] = useState([]); // {id: ""}を消してDataGridにloading={posts.length === 0}を追記
   const [rawData, setRawData] = useState([]);
